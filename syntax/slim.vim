@@ -68,6 +68,8 @@ syn match  slimInterpolationEscape "\\\@<!\%(\\\\\)*\\\%(\\\ze#{\|#\ze{\)"
 syn region slimRuby matchgroup=slimRubyOutputChar start="\s*[=]\==[']\=" skip=",\s*$" end="$" contained contains=@slimRubyTop keepend
 syn region slimRuby matchgroup=slimRubyChar       start="\s*-"           skip=",\s*$" end="$" contained contains=@slimRubyTop keepend
 
+syn region SlimPlainFilter      matchgroup=slimFilter start="^\z(\s*\)\%(plain\|preserve\|redcloth\|textile\|markdown\|maruku\):\s*$" end="^\%(\z1 \| *$\)\@!"
+
 syn match slimComment /^\(\s*\)[/].*\(\n\1\s.*\)*/ contains=slimTodo
 syn match slimText    /^\(\s*\)[`|'].*\(\n\1\s.*\)*/
 
@@ -97,5 +99,6 @@ hi def link slimTodo                      Todo
 hi def link slimWrappedAttrValueDelimiter Delimiter
 hi def link slimWrappedAttrsDelimiter     Delimiter
 hi def link slimInlineTagChar             Delimiter
+hi def link slimFilter                    PreProc
 
 let b:current_syntax = "slim"
